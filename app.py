@@ -13,10 +13,13 @@ def index():
         #print(content)
         proj = content['bucket']
         file_name = content['name']
+        dictionary='{"event_bucket:"'+'"' + content['bucket'] +'",' +'"event_file_name:"'+ '"' + content['name']+'"}'
+        with open("event_info.json", "w") as outfile:
+            json.dump(dictionary, outfile)
         print('Bucket Name - ' + proj)
         print('File Name -' + file_name)
         #print(os.system('gpg'))
-        #print(os.system('./encrypt_file.sh'))
+        print(os.system('./encrypt_file.sh'))
     except:
         # if these fields are not in the JSON, ignore
         pass
