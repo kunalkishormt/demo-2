@@ -10,16 +10,13 @@ app = Flask(__name__)
 def index():
     content = request.json
     try:
-        #print(content)
         bucket = content['bucket']
         file_name = content['name']
         folder_list=file_name.split('/')
-
-        if(trim(lower(folder_list[0]))=="inbound" and folder_list[1] == "work"):
+        if((folder_list[0].lower() == "inbound") and (folder_list[1].lower() == "work")):
             os.system('./encrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
-        elif(trim(lower(folder_list[0]))=="outbound" and folder_list[1] == "work"):
+        elif((folder_list[0].lower() == "outbound") and (folder_list[1].lower() == "work")):
             os.system('./encrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
-
     except:
         # if these fields are not in the JSON, ignore
         print("Error Ocurred")
@@ -33,7 +30,7 @@ def index():
 
 @app.route('/about/')
 def about():
-    return '<h3>This is a Flask web application.</h3>'
+    return '<h3>This is a Cloud Run Application for OneHR Encryption/Decryption of files..</h3>'
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080)
