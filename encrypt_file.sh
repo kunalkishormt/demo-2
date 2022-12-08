@@ -9,8 +9,8 @@ echo $decrypt_input_path
 echo $decrypt_output_path
 echo $encrypt_input_path
 echo $encrypt_output_path
-gcloud secrets versions access "latest" --secret="loreal-public" --out-file="test_pub.key"
-cat test_pub.key
-gsutil ls gs://poc-bucket-gcc-2/
+#gcloud secrets versions access "latest" --secret="loreal-public" --out-file="test_pub.key"
+#cat test_pub.key
+#gsutil ls gs://poc-bucket-gcc-2/
 
-cat /priv/loreal-private
+#cat /priv/loreal-private
