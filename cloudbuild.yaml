@@ -4,7 +4,7 @@ steps:
    args: ['build', '-t','${_REPO_REGION}/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/encryptor', '.']
   # Docker push to Google Artifact Registry
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push',  '${_REPO_REGION}/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/encryptor']
+   args: ['push',  '${_REPO_REGION}/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/encryptor:latest']
   # Deploy to Cloud Run
  - name: 'google/cloud-sdk'
    args: ['gcloud', 'run', 'deploy', 'encryptor', '--image=${_REPO_REGION}/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/encryptor:latest}','--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
