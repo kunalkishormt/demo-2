@@ -10,7 +10,11 @@ app = Flask(__name__)
 def index():
     content = request.json
     try:
-        print(content)
+        #print(content)
+        proj = content['bucket']
+        file_name = content['name']
+        print('Bucket Name - ' + proj)
+        print('File Name -' + file_name)
         #print(os.system('gpg'))
         #print(os.system('./encrypt_file.sh'))
     except:
