@@ -15,9 +15,9 @@ def index():
         file_name = content['name']
         folder_list=file_name.split('/')
 
-        if(folder_list[0]=="inbound" and folder_list[1] == "work"):
-            os.system('./decrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
-        elif(folder_list[0]=="outbound" and folder_list[1] == "work"):
+        if(trim(lower(folder_list[0]))=="inbound" and folder_list[1] == "work"):
+            os.system('./encrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
+        elif(trim(lower(folder_list[0]))=="outbound" and folder_list[1] == "work"):
             os.system('./encrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
 
     except:

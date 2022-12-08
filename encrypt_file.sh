@@ -1,6 +1,8 @@
 event_bucket=$1
 event_file_name=$2
 
+echo $event_bucket
+echo $event_file_name
 #Generate the Key to Local
 gcloud secrets versions access "latest" --secret="loreal-public" --out-file="loreal_pub.key"
 #cat test_pub.key
