@@ -13,14 +13,13 @@ def index():
         #print(content)
         bucket = content['bucket']
         file_name = content['name']
-        dictionary='{\"event_bucket\"'+':'+'\"' + bucket +'\",' +'\"event_file_name\"'+':'+ '\"' + file_name+'\"}'
-        print(dictionary)
-        with open("event_info.json", "w") as outfile:
-            json.dump(dictionary, outfile)
-        print('Bucket Name - ' + bucket)
-        print('File Name -' + file_name)
-        #print(os.system('gpg'))
-        os.system('./encrypt_file.sh')
+        folder_list=file_name.split('/')
+
+        if(folder_list[0]=="inbound" and folder_list[1] == "work"):
+            os.system('./decrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
+        elif(folder_list[0]=="outbound" and folder_list[1] == "work"):
+            os.system('./encrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
+
     except:
         # if these fields are not in the JSON, ignore
         print("Error Ocurred")
