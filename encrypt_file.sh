@@ -8,6 +8,11 @@ gcloud secrets versions access "latest" --secret="loreal-public" --out-file="lor
 #cat test_pub.key
 #gsutil ls gs://poc-bucket-gcc-2/
 
+# We can use a JSON configuration for Key and Vendor Mapping
+#decrypt_input_path=`jq -r ".decrypt_input_path" config.json`
+#echo $decrypt_input_path
+
+
 #copy the uploaded file to local
 
 gsutil cp gs://$event_bucket/inbound/work/$event_file_name .

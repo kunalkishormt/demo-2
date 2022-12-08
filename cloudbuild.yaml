@@ -7,6 +7,6 @@ steps:
    args: ['push',  '${_REPO_REGION}/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/encryptor:latest']
   # Deploy to Cloud Run
  - name: 'google/cloud-sdk'
-   args: ['gcloud', 'run', 'deploy', 'encryptor', '--image=${_REPO_REGION}/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/encryptor:latest','--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+   args: ['gcloud', 'run', 'deploy', 'encryptor', '--image=${_REPO_REGION}/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/encryptor:latest','--region', 'us-east4', '--platform', 'managed']
 options:
   logging: CLOUD_LOGGING_ONLY
