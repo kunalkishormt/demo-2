@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    os.system('gpg')
-    return
+    rslt=os.system('gpg')
+    return rslt
     
 
 
