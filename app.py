@@ -13,7 +13,7 @@ def index():
         #print(content)
         bucket = content['bucket']
         file_name = content['name']
-        dictionary='{"event_bucket:"'+'"' + bucket +'",' +'"event_file_name:"'+ '"' + file_name+'"}'
+        dictionary='{"event_bucket"'+':'+'"' + bucket +'",' +'"event_file_name"'+':'+ '"' + file_name+'"}'
         print(dictionary)
         with open("event_info.json", "w") as outfile:
             json.dump(dictionary, outfile)
