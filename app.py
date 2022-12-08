@@ -11,17 +11,19 @@ def index():
     content = request.json
     try:
         #print(content)
-        proj = content['bucket']
+        bucket = content['bucket']
         file_name = content['name']
-        dictionary='{"event_bucket:"'+'"' + content['bucket'] +'",' +'"event_file_name:"'+ '"' + content['name']+'"}'
+        dictionary='{"event_bucket:"'+'"' + bucket +'",' +'"event_file_name:"'+ '"' + file_name+'"}'
+        print(dictionary)
         with open("event_info.json", "w") as outfile:
             json.dump(dictionary, outfile)
-        print('Bucket Name - ' + proj)
+        print('Bucket Name - ' + bucket)
         print('File Name -' + file_name)
         #print(os.system('gpg'))
-        print(os.system('./encrypt_file.sh'))
+        os.system('./encrypt_file.sh')
     except:
         # if these fields are not in the JSON, ignore
+        print("Error Ocurred")
         pass
     return "ok", 200
     
