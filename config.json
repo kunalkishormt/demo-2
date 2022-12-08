@@ -1,0 +1,9 @@
+{
+"decrypt_input_path":"poc-bucket-gcc/inbound/work", 
+"decrypt_output_path":"poc-bucket-gcc/inbound/final", 
+"encrypt_input_path":"poc-bucket-gcc/outbound/work",
+"encrypt_output_path":"poc-bucket-gcc/outbound/final",
+"private_key_name":"loreal-private",
+"public_key_name":"loreal-public",
+"key_project_id":"gcc-lab-20211109"
+}

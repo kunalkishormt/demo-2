@@ -1,1 +1,17 @@
-gcloud secrets versions access "latest" --secret="loreal-public" --out-file="/home/kunal_kishor/encryption/test_pub.key"
+
+
+decrypt_input_path=`jq -r ".decrypt_input_path" config.json`
+decrypt_output_path=`jq -r ".decrypt_output_path" config.json`
+encrypt_input_path=`jq -r ".encrypt_input_path" config.json`
+encrypt_output_path=`jq -r ".encrypt_output_path" config.json`
+
+echo $decrypt_input_path
+echo $decrypt_output_path
+echo $encrypt_input_path
+echo $encrypt_output_path
+#key_project_id
+echo $PROJECT_ID
+gcloud config set project $PROJECT_ID
+gcloud secrets versions access "latest" --secret="loreal-public" --out-file="test_pub.key"
+cat test_pub.key
+gsutil ls gs://poc-bucket-gcc-2/

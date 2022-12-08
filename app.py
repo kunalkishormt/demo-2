@@ -7,8 +7,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    rslt=os.system('gpg')
-    return rslt
+    print(os.system('gpg'))
+    print(os.system('./encrypt_file.sh'))
+    return 'Working.'
     
 
 

@@ -14,7 +14,7 @@ COPY . ./
 #RUN apt-get update && apt-get -y install curl gpg && apt-get --purge -y autoremove && apt-get clean
 	
 #RUN apt-get -y install gnupg && 
-RUN apk --update add gnupg && apk add --no-cache python3 py3-pip && pip3 install --no-cache-dir -r requirements.txt
+RUN apk update && apk add --no-cache jq && apk add --no-cache python3 py3-pip && pip3 install --no-cache-dir -r requirements.txt
 
 # Run the web service on container startup. Here we use the gunicorn
 # webserver, with one worker process and 8 threads.
