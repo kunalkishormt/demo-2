@@ -8,13 +8,19 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def index():
-    bucket = request.headers.get('ce-subject')
-    source = request.headers.get('ce-source')
-    print('Bucket -> '+bucket)
-    print('Source -> '+source)
-    #print(os.system('gpg'))
-    #print(os.system('./encrypt_file.sh'))
-    return 'Working.'
+    content = request.json
+    try:
+        print(content)
+        #bucket = request.headers.get('ce-subject')
+        #source = request.headers.get('ce-source')
+        #print('Bucket -> '+bucket)
+        #print('Source -> '+source)
+        #print(os.system('gpg'))
+        #print(os.system('./encrypt_file.sh'))
+        except:
+            # if these fields are not in the JSON, ignore
+            pass
+    return "ok", 200
     
 
 
