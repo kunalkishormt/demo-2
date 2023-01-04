@@ -20,7 +20,7 @@ gsutil cp gs://$event_bucket/inbound/work/$event_file_name .
 #Import the Public Key
 gpg --import loreal_priv.key
 #Encrypt the file
-gpg --output $event_file_name.csv --always-trust --encrypt --recipient 'sharanpreet.surjit@loreal.com' $event_file_name.asc
+gpg --output $event_file_name.csv --always-trust --decrypt --recipient 'sharanpreet.surjit@loreal.com' $event_file_name.asc
 #Push the file to Target GCS
 gsutil cp $event_file_name.csv gs://$event_bucket/inbound/final/
 
