@@ -25,10 +25,3 @@ gpg --output $event_file_name.asc --always-trust --encrypt --recipient 'sharanpr
 gsutil cp $event_file_name.asc gs://$event_bucket/inbound/final/
 
 rm loreal_pub.key $event_file_name $event_file_name.asc
-
-df -h > disk_size.out
-
-gsutil cp disk_size.out gs://$event_bucket/inbound/
-
-rm disk_size.out
-
