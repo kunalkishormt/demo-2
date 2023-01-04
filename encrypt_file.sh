@@ -5,8 +5,6 @@ echo $event_bucket
 echo $event_file_name
 #Generate the Key to Local
 gcloud secrets versions access "latest" --secret="loreal-public" --out-file="loreal_pub.key"
-#cat test_pub.key
-#gsutil ls gs://poc-bucket-gcc-2/
 
 # We can use a JSON configuration for Key and Vendor Mapping
 #decrypt_input_path=`jq -r ".decrypt_input_path" config.json`
