@@ -1,4 +1,4 @@
-# Use the official lightweight Python image.
+# Use the official lightweight Gcloud Command line alpine image.
 FROM gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine
 
 # Copy local code to the container image.
