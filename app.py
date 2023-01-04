@@ -16,7 +16,7 @@ def index():
         if((folder_list[0].lower() == "inbound") and (folder_list[1].lower() == "work")):
             os.system('./encrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
         elif((folder_list[0].lower() == "outbound") and (folder_list[1].lower() == "work")):
-            os.system('./encrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
+            os.system('./decrypt_file.sh ' + bucket + ' ' + os.path.basename(file_name))
     except:
         # if these fields are not in the JSON, ignore
         print("Error Ocurred")
