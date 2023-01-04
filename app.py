@@ -22,11 +22,6 @@ def index():
         print("Error Ocurred")
         pass
     return "ok", 200
-    
-
-
-#return '<h1>Playing with a Flask Application 123 using Cloud Build at '+ str(datetime.datetime.now()) +'!</h1>'
-
 
 @app.route('/about/')
 def about():
