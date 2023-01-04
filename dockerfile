@@ -7,7 +7,7 @@ WORKDIR $APP_HOME
 COPY . ./
 
 # Install production dependencies.
-RUN apk update && apk add --no-cache jq && apk add --no-cache python3 py3-pip && apt-get --purge -y autoremove && apt-get clean && pip3 install --no-cache-dir -r requirements.txt
+RUN apk update && apk add --no-cache jq && apk add --no-cache python3 py3-pip && pip3 install --no-cache-dir -r requirements.txt
 
 # Run the service on container startup. Here we use the gunicorn
 # webserver, with one worker process and 8 threads.
